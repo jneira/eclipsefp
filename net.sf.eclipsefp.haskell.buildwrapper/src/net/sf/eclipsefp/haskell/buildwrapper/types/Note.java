@@ -120,7 +120,7 @@ public class Note {
 					)
 				return;
 		}
-		Map<Object,Object> attributes=null;
+		Map<String,Object> attributes=null;
 		if (doc==null){
 		  IDocumentProvider prov=new TextFileDocumentProvider();
 	        try {
@@ -145,7 +145,7 @@ public class Note {
 		}
 		attributes.put(IMarker.SEVERITY, severity);
 		attributes.put(IMarker.MESSAGE,msg);
-		final Map<Object,Object> attributesf=attributes;
+		final Map<String,Object> attributesf=attributes;
 		/**
 		 * this locks the workspace, so fire a new thread
 		 */

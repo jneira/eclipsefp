@@ -281,9 +281,9 @@ public class Location {
 		return null;
 	}
 
-	public Map<Object,Object> getMarkerProperties(IDocument d){
+	public Map<String,Object> getMarkerProperties(IDocument d){
 		int line= Math.min(getStartLine(),d.getNumberOfLines());
-		final Map<Object,Object> attributes=new HashMap<>();
+		final Map<String,Object> attributes=new HashMap<>();
 		//MarkerUtilities.setLineNumber(attributes, line);
 		//if (getStartLine()==getEndLine()){
 		MarkerUtilities.setLineNumber(attributes, line);
@@ -306,9 +306,9 @@ public class Location {
 		return attributes;
 	}
 	
-	public Map<Object,Object> getMarkerProperties(int maxLines){
+	public Map<String,Object> getMarkerProperties(int maxLines){
 		int line= Math.min(getStartLine(),maxLines);
-		final Map<Object,Object> attributes=new HashMap<>();
+		final Map<String,Object> attributes=new HashMap<>();
 		MarkerUtilities.setLineNumber(attributes, line);
 //		if (getStartLine()==getEndLine()){
 //			int start=getStartColumn();

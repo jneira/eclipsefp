@@ -18,17 +18,6 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import net.sf.eclipsefp.haskell.buildwrapper.BWFacade;
-import net.sf.eclipsefp.haskell.buildwrapper.BuildWrapperPlugin;
-import net.sf.eclipsefp.haskell.buildwrapper.types.Location;
-import net.sf.eclipsefp.haskell.buildwrapper.types.Occurrence;
-import net.sf.eclipsefp.haskell.buildwrapper.types.TokenDef;
-import net.sf.eclipsefp.haskell.core.codeassist.ITokenTypes;
-import net.sf.eclipsefp.haskell.ui.HaskellUIPlugin;
-import net.sf.eclipsefp.haskell.ui.internal.editors.haskell.HaskellEditor;
-import net.sf.eclipsefp.haskell.ui.internal.preferences.editor.IEditorPreferenceNames;
-import net.sf.eclipsefp.haskell.ui.internal.util.UITexts;
-import net.sf.eclipsefp.haskell.util.FileUtil;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -40,6 +29,17 @@ import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.texteditor.MarkerUtilities;
+import net.sf.eclipsefp.haskell.buildwrapper.BWFacade;
+import net.sf.eclipsefp.haskell.buildwrapper.BuildWrapperPlugin;
+import net.sf.eclipsefp.haskell.buildwrapper.types.Location;
+import net.sf.eclipsefp.haskell.buildwrapper.types.Occurrence;
+import net.sf.eclipsefp.haskell.buildwrapper.types.TokenDef;
+import net.sf.eclipsefp.haskell.core.codeassist.ITokenTypes;
+import net.sf.eclipsefp.haskell.ui.HaskellUIPlugin;
+import net.sf.eclipsefp.haskell.ui.internal.editors.haskell.HaskellEditor;
+import net.sf.eclipsefp.haskell.ui.internal.preferences.editor.IEditorPreferenceNames;
+import net.sf.eclipsefp.haskell.ui.internal.util.UITexts;
+import net.sf.eclipsefp.haskell.util.FileUtil;
 
 /**
  * Uses BuildWrapper getTokenTypes function to get tokens for a Haskell source
@@ -476,7 +476,7 @@ public class ScionTokenScanner implements IPartitionTokenScanner, IEditorPrefere
                 for (TaskTag tt:tags){
                   if (test.startsWith( tt.getName())){
 
-                    final Map<Object,Object> attributes=nextTokenDef.getLocation().getMarkerProperties( doc );
+                    final Map<String,Object> attributes=nextTokenDef.getLocation().getMarkerProperties( doc );
                     attributes.put(IMarker.PRIORITY, tt.getMarkerPriority());
                     // use original text
                     attributes.put(IMarker.MESSAGE,orig);
