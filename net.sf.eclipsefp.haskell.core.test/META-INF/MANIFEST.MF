@@ -5,7 +5,6 @@ Bundle-SymbolicName: net.sf.eclipsefp.haskell.core.test
 Bundle-Version: 2.6.5.qualifier
 Bundle-Vendor: eclipsefp.sourceforge.net
 Require-Bundle: org.easymock;bundle-version="[2.2.0,3.0.0)",
- org.junit;bundle-version="[4.8.0,4.12.0)",
  org.eclipse.jface;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.jface.text;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.core.expressions,
@@ -14,7 +13,8 @@ Require-Bundle: org.easymock;bundle-version="[2.2.0,3.0.0)",
  net.sf.eclipsefp.haskell.core,
  net.sf.eclipsefp.haskell.ui,
  net.sf.eclipsefp.haskell.util,
- org.eclipse.ui;bundle-version="3.5.1"
+ org.eclipse.ui;bundle-version="3.5.1",
+ org.junit;bundle-version="4.12.0"
 Export-Package: net.sf.eclipsefp.haskell.core.cabalmodel,
  net.sf.eclipsefp.haskell.core.internal.doubles;x-friends:="net.sf.eclipsefp.haskell.ui.test",
  net.sf.eclipsefp.haskell.core.internal.project,
