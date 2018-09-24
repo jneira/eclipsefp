@@ -1,11 +1,13 @@
 package net.sf.eclipsefp.haskell.core.internal.util;
 
-import junit.framework.TestCase;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.junit.Ignore;
+import junit.framework.TestCase;
 
+@Ignore
 public class CompletionProposalTestCase extends TestCase {
 
 	public static ICompletionProposal createProposal(final String replaced, final String replacement, final int offset) {

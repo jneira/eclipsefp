@@ -581,6 +581,7 @@ public class CabalModelTest extends TestCase {
         "hslogger",
         "json",
         "multiset",
+        "QuickCheck",
         "time",
         "uniplate",
         "list-tries",
@@ -590,6 +591,10 @@ public class CabalModelTest extends TestCase {
     assertEquals(expected,ss);
 
     expected.remove("uniplate");
+    expected.add("bytestring");
+    expected.add("network-bytestring");
+    expected.add("network");
+    expected.add("utf8-string");
     pds=pd.getStanzas().get( 4 );
     assertEquals(CabalSyntax.SECTION_EXECUTABLE,pds.getType());
     ss=pds.getDependentPackages();

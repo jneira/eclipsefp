@@ -1,7 +1,6 @@
 package net.sf.eclipsefp.haskell.core.internal.project;
 
 import java.io.IOException;
-import net.sf.eclipsefp.haskell.core.test.TestCaseWithPreferences;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -9,6 +8,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import net.sf.eclipsefp.haskell.core.test.TestCaseWithPreferences;
 
 public class ProjectCreationOperationPDETestCase extends TestCaseWithPreferences {
 
@@ -30,7 +30,12 @@ public class ProjectCreationOperationPDETestCase extends TestCaseWithPreferences
 	}
 
 	protected ProjectCreationOperation createOperation() {
-		ProjectCreationOperation result = new ProjectCreationOperation();
+		ProjectCreationOperation result = new ProjectCreationOperation() {
+		  @Override
+		  protected String[] getDirectories() {
+		    return new String[] {"src"};
+		  }
+		};
 		ProjectModelFilesOp modelFiles=new ProjectModelFilesOp() ;
 		modelFiles.setExecutable( true );
 		result.setExtraOperation( modelFiles);
